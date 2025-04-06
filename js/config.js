@@ -322,7 +322,12 @@ Debugger.Config = function() {
             ['reg8h', 'reg8l'],
             ['reg8l', 'reg8h'],
             ['reg8h', 'reg8h'],
-            ['reg8l', 'reg8l']
+            ['reg8l', 'reg8l'],
+            ['reg32', 'val'],
+            ['reg16', 'val'],
+            ['reg8h', 'val'],
+            ['reg8l', 'val'],
+            ['reg8l', 'val']
         ],
         'neg': [
             ['reg32'],
@@ -333,6 +338,10 @@ Debugger.Config = function() {
         'loop': [
             ['label']
         ],
+        'call': [
+            ['label']
+        ],
+        'ret': [],
         'jc': [
             ['label']
         ],

@@ -20,6 +20,11 @@ Debugger.Vars = (function() {
      * The pointer for the next instruction
      */
     var instructionPointer = 1;
+    
+    /*
+     * The pointers for `ret` instruction
+     */
+    var retInstructionPointers = []
 
     /*
      * The link between instruction pointer (internal instruction object) and address code (the code in HTML)
@@ -136,6 +141,7 @@ Debugger.Vars = (function() {
         instructions: instructions,
         instructionObjects: instructionObjects,
         instructionPointer: instructionPointer,
+        retInstructionPointers: retInstructionPointers,
         instructionPointerToAddressCode: instructionPointerToAddressCode,
         addresses: addresses,
         labels: labels,

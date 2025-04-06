@@ -564,6 +564,28 @@ Debugger.Instructions = (function() {
                 Debugger.Helper.setFlags(type, operand1, operand2, ecx);
                 break;
 
+
+            case 'call':
+                if (!(address = Debugger.Helper.findLabelAddress(instructionObject.param1.value, instructionObjects))) {
+                    console.log('Call to function, but label not found');
+                    return false;
+                }
+
+                Debugger.Vars.retInstructionPointers.push(Debugger.Vars.instructionPointer);
+
+                Debugger.Vars.instructionPointer = address;
+
+                break
+            case 'ret':
+                address = Debugger.Vars.retInstructionPointers.pop()
+
+                if (!address) {
+                    console.log('No address to return to... Skipping.')
+                    return false
+                }
+                Debugger.Vars.instructionPointer = address
+
+                break
             /*
              * Negates the number, it find's the two's complement.
              */
